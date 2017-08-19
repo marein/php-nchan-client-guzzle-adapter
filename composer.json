@@ -1,0 +1,24 @@
+{
+  "name": "marein/php-nchan-client-guzzle-adapter",
+  "description": "Guzzle adapter for marein/php-nchan-client.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Markus Reinhold",
+      "email": "markusreinhold@icloud.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Marein\\NchanGuzzle\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.1",
+    "marein/php-nchan-client": "^0.0.2",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0"
+  }
+}
