@@ -2,6 +2,12 @@
 
 Guzzle adapter for [marein/php-nchan-client](https://github.com/marein/php-nchan-client).
 
+## Installation
+
+```
+composer require marein/php-nchan-client-guzzle-adapter
+```
+
 ## Usage
 
 ```php
