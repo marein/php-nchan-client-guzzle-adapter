@@ -15,7 +15,7 @@
   },
   "require": {
     "php": ">=7.1",
-    "marein/php-nchan-client": "^0.0.2",
+    "marein/php-nchan-client": "^0.0.4",
     "guzzlehttp/guzzle": "^6.3"
   },
   "require-dev": {
