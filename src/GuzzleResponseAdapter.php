@@ -27,7 +27,7 @@ class GuzzleResponseAdapter implements Response
      */
     public function statusCode(): int
     {
-        return $this->response->getStatusCode();
+        return (int)$this->response->getStatusCode();
     }
 
     /**
@@ -35,6 +35,6 @@ class GuzzleResponseAdapter implements Response
      */
     public function body(): string
     {
-        return $this->response->getBody();
+        return (string)$this->response->getBody();
     }
 }
