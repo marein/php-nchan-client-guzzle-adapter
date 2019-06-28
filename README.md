@@ -22,12 +22,12 @@ namespace {
 
     include '/path/to/autoload.php';
 
-    // Setting http_errors to false is important, because 404 are valid responses for the nchan client.
-    $client = new Client([
-        'http_errors' => false
-    ]);
+    $client = new Client();
 
-    $nchan = new Nchan('http://my-nchan-domain', new GuzzleAdapter($client));
+    $nchan = new Nchan(
+        'http://my-nchan-domain',
+        new GuzzleAdapter($client)
+    );
     $channel = $nchan->channel('/path-to-publisher-endpoint');
     $channelInformation = $channel->publish(
         new PlainTextMessage(

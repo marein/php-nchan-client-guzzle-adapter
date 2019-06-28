@@ -2,11 +2,12 @@
 
 namespace Marein\NchanGuzzle;
 
-use Marein\Nchan\Http\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\BadResponseException;
 use Marein\Nchan\Exception\NchanException;
+use Marein\Nchan\Http\Client;
 use Marein\Nchan\Http\Request;
 use Marein\Nchan\Http\Response;
-use GuzzleHttp\ClientInterface;
 
 class GuzzleAdapter implements Client
 {
@@ -69,6 +70,8 @@ class GuzzleAdapter implements Client
             ));
 
             return new GuzzleResponseAdapter($response);
+        } catch (BadResponseException $exception) {
+            return new GuzzleResponseAdapter($exception->getResponse());
         } catch (\Exception $exception) {
             throw new NchanException(
                 $exception->getMessage(),
