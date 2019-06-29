@@ -9,6 +9,7 @@ use Marein\Nchan\Exception\NchanException;
 use Marein\Nchan\Http\Client;
 use Marein\Nchan\Http\Request;
 use Marein\Nchan\Http\Response;
+use Psr\Http\Message\ResponseInterface;
 
 class GuzzleAdapter implements Client
 {
@@ -63,16 +64,29 @@ class GuzzleAdapter implements Client
     private function request(string $method, Request $request): Response
     {
         try {
-            $response = $this->client->send(new \GuzzleHttp\Psr7\Request(
-                $method,
-                $request->url(),
-                $request->headers(),
-                $request->body()
-            ));
+            $response = $this->client->send(
+                new \GuzzleHttp\Psr7\Request(
+                    $method,
+                    $request->url()->toString(),
+                    $request->headers(),
+                    $request->body()
+                )
+            );
 
             return new GuzzleResponseAdapter($response);
         } catch (BadResponseException $exception) {
-            return new GuzzleResponseAdapter($exception->getResponse());
+            if ($exception->hasResponse()) {
+                /** @var ResponseInterface $response */
+                $response = $exception->getResponse();
+
+                return new GuzzleResponseAdapter($response);
+            }
+
+            throw new NchanException(
+                $exception->getMessage(),
+                $exception->getCode(),
+                $exception
+            );
         } catch (\Exception $exception) {
             throw new NchanException(
                 $exception->getMessage(),
