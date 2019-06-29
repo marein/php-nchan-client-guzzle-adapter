@@ -5,8 +5,22 @@ php:
     - 7.2
     - 7.3
 
+env:
+    - NCHAN_CLIENT_VERSION="^1.0"
+    - NCHAN_CLIENT_VERSION="^2.0"
+
+matrix:
+    exclude:
+        -
+            php: 7.1
+            env: NCHAN_CLIENT_VERSION="^2.0"
+        -
+            php: 7.2
+            env: NCHAN_CLIENT_VERSION="^2.0"
+
 install:
     - composer install
+    - composer require marein/php-nchan-client:$NCHAN_CLIENT_VERSION
     - mkdir -p build/logs
 
 script:
