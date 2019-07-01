@@ -6,7 +6,7 @@ namespace Marein\NchanGuzzle;
 use Marein\Nchan\Http\Response;
 use Psr\Http\Message\ResponseInterface;
 
-class GuzzleResponseAdapter implements Response
+final class GuzzleResponseAdapter implements Response
 {
     /**
      * @var ResponseInterface

@@ -11,7 +11,7 @@ use Marein\Nchan\Http\Request;
 use Marein\Nchan\Http\Response;
 use Psr\Http\Message\ResponseInterface;
 
-class GuzzleAdapter implements Client
+final class GuzzleAdapter implements Client
 {
     /**
      * @var ClientInterface
