@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-version: ['7.1', '7.2', '7.3']
+        php-version: ['7.1', '7.2', '7.3', '7.4']
         nchan-client-version: ['^1.0', '^2.0']
         exclude:
           - operating-system: ubuntu-latest
