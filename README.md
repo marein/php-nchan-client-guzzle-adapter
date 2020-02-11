@@ -1,5 +1,7 @@
 # php-nchan-client-guzzle-adapter
 
+![CI](https://github.com/marein/php-nchan-client-guzzle-adapter/workflows/CI/badge.svg?branch=master)
+
 Guzzle adapter for [marein/php-nchan-client](https://github.com/marein/php-nchan-client).
 
 ## Installation
