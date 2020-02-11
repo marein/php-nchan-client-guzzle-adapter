@@ -1,7 +1,5 @@
 # php-nchan-client-guzzle-adapter
 
-[![Build Status](https://travis-ci.org/marein/php-nchan-client-guzzle-adapter.svg?branch=master)](https://travis-ci.org/marein/php-nchan-client-guzzle-adapter)
-
 Guzzle adapter for [marein/php-nchan-client](https://github.com/marein/php-nchan-client).
 
 ## Installation
