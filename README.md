@@ -1,7 +1,6 @@
 # php-nchan-client-guzzle-adapter
 
 [![Build Status](https://travis-ci.org/marein/php-nchan-client-guzzle-adapter.svg?branch=v1.1)](https://travis-ci.org/marein/php-nchan-client-guzzle-adapter)
-[![Coverage Status](https://coveralls.io/repos/github/marein/php-nchan-client-guzzle-adapter/badge.svg?branch=v1.1)](https://coveralls.io/github/marein/php-nchan-client-guzzle-adapter?branch=v1.1)
 
 Guzzle adapter for [marein/php-nchan-client](https://github.com/marein/php-nchan-client).
 
