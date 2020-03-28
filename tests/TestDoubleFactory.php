@@ -21,7 +21,7 @@ final class TestDoubleFactory
     /**
      * @var TestCase
      */
-    public $testCase;
+    public TestCase $testCase;
 
     /**
      * DoubleFactory constructor.

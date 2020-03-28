@@ -16,7 +16,7 @@ final class GuzzleAdapter implements Client
     /**
      * @var ClientInterface
      */
-    private $client;
+    private ClientInterface $client;
 
     /**
      * GuzzleAdapter constructor.

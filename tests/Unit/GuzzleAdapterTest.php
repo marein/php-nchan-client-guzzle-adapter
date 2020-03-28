@@ -14,7 +14,7 @@ final class GuzzleAdapterTest extends TestCase
     /**
      * @var TestDoubleFactory
      */
-    private $testDoubleFactory;
+    private TestDoubleFactory $testDoubleFactory;
 
     /**
      * @inheritdoc

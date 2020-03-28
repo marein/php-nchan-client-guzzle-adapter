@@ -11,7 +11,7 @@ final class GuzzleResponseAdapter implements Response
     /**
      * @var ResponseInterface
      */
-    private $response;
+    private ResponseInterface $response;
 
     /**
      * GuzzleResponseAdapter constructor.
