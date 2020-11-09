@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3f632214bc5617c87f2deb0da2d6021",
+    "content-hash": "c16ef2c46db1f0edfa902c0354e0dee7",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -248,10 +248,6 @@
                 }
             ],
             "description": "A PHP https://nchan.io client.",
-            "support": {
-                "issues": "https://github.com/marein/php-nchan-client/issues",
-                "source": "https://github.com/marein/php-nchan-client/tree/3.0.0"
-            },
             "time": "2020-11-09T20:45:23+00:00"
         },
         {
@@ -2471,7 +2467,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4"
+        "php": "^7.4 || ^8.0"
     },
     "platform-dev": []
 }
