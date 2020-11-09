@@ -75,17 +75,8 @@ final class GuzzleAdapter implements Client
 
             return new GuzzleResponseAdapter($response);
         } catch (BadResponseException $exception) {
-            if ($exception->hasResponse()) {
-                /** @var ResponseInterface $response */
-                $response = $exception->getResponse();
-
-                return new GuzzleResponseAdapter($response);
-            }
-
-            throw new NchanException(
-                $exception->getMessage(),
-                $exception->getCode(),
-                $exception
+            return new GuzzleResponseAdapter(
+                $exception->getResponse()
             );
         } catch (\Exception $exception) {
             throw new NchanException(

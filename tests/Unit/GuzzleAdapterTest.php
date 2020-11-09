@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Marein\NchanGuzzle\Tests\Unit;
 
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Psr7\Response;
 use Marein\Nchan\Exception\NchanException;
 use Marein\NchanGuzzle\GuzzleAdapter;
 use Marein\NchanGuzzle\Tests\TestDoubleFactory;
@@ -63,26 +64,6 @@ final class GuzzleAdapterTest extends TestCase
     /**
      * @test
      */
-    public function itShouldHandleBadResponseExceptionWithoutResponseOnGetRequest(): void
-    {
-        $this->expectException(NchanException::class);
-
-        $guzzleAdapter = new GuzzleAdapter(
-            $this->testDoubleFactory->createThrowingGuzzleClient(
-                new BadResponseException(
-                    'message',
-                    $this->testDoubleFactory->createPsrRequest('GET'),
-                    null
-                )
-            )
-        );
-
-        $guzzleAdapter->get($this->testDoubleFactory->createNchanRequest());
-    }
-
-    /**
-     * @test
-     */
     public function itShouldTranslateAnyExceptionOnGetRequest(): void
     {
         $this->expectException(NchanException::class);
@@ -133,26 +114,6 @@ final class GuzzleAdapterTest extends TestCase
     /**
      * @test
      */
-    public function itShouldHandleBadResponseExceptionWithoutResponseOnPostRequest(): void
-    {
-        $this->expectException(NchanException::class);
-
-        $guzzleAdapter = new GuzzleAdapter(
-            $this->testDoubleFactory->createThrowingGuzzleClient(
-                new BadResponseException(
-                    'message',
-                    $this->testDoubleFactory->createPsrRequest('POST'),
-                    null
-                )
-            )
-        );
-
-        $guzzleAdapter->post($this->testDoubleFactory->createNchanRequest());
-    }
-
-    /**
-     * @test
-     */
     public function itShouldTranslateAnyExceptionOnPostRequest(): void
     {
         $this->expectException(NchanException::class);
@@ -198,26 +159,6 @@ final class GuzzleAdapterTest extends TestCase
             $this->testDoubleFactory->createNchanResponse(403),
             $guzzleAdapter->delete($this->testDoubleFactory->createNchanRequest())
         );
-    }
-
-    /**
-     * @test
-     */
-    public function itShouldHandleBadResponseExceptionWithoutResponseOnDeleteRequest(): void
-    {
-        $this->expectException(NchanException::class);
-
-        $guzzleAdapter = new GuzzleAdapter(
-            $this->testDoubleFactory->createThrowingGuzzleClient(
-                new BadResponseException(
-                    'message',
-                    $this->testDoubleFactory->createPsrRequest('DELETE'),
-                    null
-                )
-            )
-        );
-
-        $guzzleAdapter->delete($this->testDoubleFactory->createNchanRequest());
     }
 
     /**
