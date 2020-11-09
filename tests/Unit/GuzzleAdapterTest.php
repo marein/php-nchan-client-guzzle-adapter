@@ -65,6 +65,10 @@ final class GuzzleAdapterTest extends TestCase
      */
     public function itShouldHandleBadResponseExceptionWithoutResponseOnGetRequest(): void
     {
+        if ($this->isGuzzleVersion7()) {
+            self::markTestSkipped();
+        }
+
         $this->expectException(NchanException::class);
 
         $guzzleAdapter = new GuzzleAdapter(
@@ -135,6 +139,10 @@ final class GuzzleAdapterTest extends TestCase
      */
     public function itShouldHandleBadResponseExceptionWithoutResponseOnPostRequest(): void
     {
+        if ($this->isGuzzleVersion7()) {
+            self::markTestSkipped();
+        }
+
         $this->expectException(NchanException::class);
 
         $guzzleAdapter = new GuzzleAdapter(
@@ -205,6 +213,10 @@ final class GuzzleAdapterTest extends TestCase
      */
     public function itShouldHandleBadResponseExceptionWithoutResponseOnDeleteRequest(): void
     {
+        if ($this->isGuzzleVersion7()) {
+            self::markTestSkipped();
+        }
+
         $this->expectException(NchanException::class);
 
         $guzzleAdapter = new GuzzleAdapter(
@@ -232,5 +244,19 @@ final class GuzzleAdapterTest extends TestCase
         );
 
         $guzzleAdapter->delete($this->testDoubleFactory->createNchanRequest());
+    }
+
+    /**
+     * Returns true if we're dealing with guzzle version 7.
+     *
+     * @return bool
+     */
+    private function isGuzzleVersion7(): bool
+    {
+        // The third parameter is required since version 7.
+        return !(new \ReflectionClass(BadResponseException::class))
+            ->getConstructor()
+            ->getParameters()[2]
+            ->allowsNull();
     }
 }
