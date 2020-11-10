@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Marein\NchanGuzzle\Tests\Unit;
 
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Psr7\Response;
 use Marein\Nchan\Exception\NchanException;
 use Marein\NchanGuzzle\GuzzleAdapter;
 use Marein\NchanGuzzle\Tests\TestDoubleFactory;

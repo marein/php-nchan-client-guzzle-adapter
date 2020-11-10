@@ -9,7 +9,6 @@ use Marein\Nchan\Exception\NchanException;
 use Marein\Nchan\Http\Client;
 use Marein\Nchan\Http\Request;
 use Marein\Nchan\Http\Response;
-use Psr\Http\Message\ResponseInterface;
 
 final class GuzzleAdapter implements Client
 {
