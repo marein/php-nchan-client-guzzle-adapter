@@ -18,9 +18,6 @@ final class GuzzleAdapterTest extends TestCase
      */
     private TestDoubleFactory $testDoubleFactory;
 
-    /**
-     * @inheritdoc
-     */
     public function setUp(): void
     {
         $this->testDoubleFactory = new TestDoubleFactory($this);

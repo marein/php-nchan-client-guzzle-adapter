@@ -9,32 +9,18 @@ use Psr\Http\Message\ResponseInterface;
 
 final class GuzzleResponseAdapter implements Response
 {
-    /**
-     * @var ResponseInterface
-     */
     private ResponseInterface $response;
 
-    /**
-     * GuzzleResponseAdapter constructor.
-     *
-     * @param ResponseInterface $response
-     */
     public function __construct(ResponseInterface $response)
     {
         $this->response = $response;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function statusCode(): int
     {
-        return (int)$this->response->getStatusCode();
+        return $this->response->getStatusCode();
     }
 
-    /**
-     * @inheritdoc
-     */
     public function body(): string
     {
         return (string)$this->response->getBody();

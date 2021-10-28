@@ -20,28 +20,13 @@ use Throwable;
  */
 final class TestDoubleFactory
 {
-    /**
-     * @var TestCase
-     */
     public TestCase $testCase;
 
-    /**
-     * DoubleFactory constructor.
-     *
-     * @param TestCase $testCase
-     */
     public function __construct(TestCase $testCase)
     {
         $this->testCase = $testCase;
     }
 
-    /**
-     * Factory for successful guzzle client.
-     *
-     * @param string $method
-     *
-     * @return ClientInterface
-     */
     public function createSuccessfulGuzzleClient(string $method): ClientInterface
     {
         $client = $this->testCase->getMockBuilder(ClientInterface::class)->getMock();
@@ -52,17 +37,9 @@ final class TestDoubleFactory
             ->with($this->createPsrRequest($method))
             ->willReturn($this->createPsrResponse(200));
 
-        /** @var ClientInterface $client */
         return $client;
     }
 
-    /**
-     * Factory for throwing guzzle client.
-     *
-     * @param Throwable $throwable
-     *
-     * @return ClientInterface
-     */
     public function createThrowingGuzzleClient(Throwable $throwable): ClientInterface
     {
         $client = $this->testCase->getMockBuilder(ClientInterface::class)->getMock();
@@ -72,15 +49,9 @@ final class TestDoubleFactory
             ->method('send')
             ->willThrowException($throwable);
 
-        /** @var ClientInterface $client */
         return $client;
     }
 
-    /**
-     * Factory for nchan request.
-     *
-     * @return Request
-     */
     public function createNchanRequest(): Request
     {
         return new Request(
@@ -92,13 +63,6 @@ final class TestDoubleFactory
         );
     }
 
-    /**
-     * Factory for nchan response.
-     *
-     * @param int $status
-     *
-     * @return Response
-     */
     public function createNchanResponse(int $status): Response
     {
         return new GuzzleResponseAdapter(
@@ -106,13 +70,6 @@ final class TestDoubleFactory
         );
     }
 
-    /**
-     * Factory for psr request.
-     *
-     * @param string $method
-     *
-     * @return RequestInterface
-     */
     public function createPsrRequest(string $method): RequestInterface
     {
         return new \GuzzleHttp\Psr7\Request(
@@ -125,13 +82,6 @@ final class TestDoubleFactory
         );
     }
 
-    /**
-     * Factory for psr response.
-     *
-     * @param int $status
-     *
-     * @return ResponseInterface
-     */
     public function createPsrResponse(int $status): ResponseInterface
     {
         return new \GuzzleHttp\Psr7\Response(

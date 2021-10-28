@@ -14,52 +14,29 @@ use Marein\Nchan\Http\Response;
 
 final class GuzzleAdapter implements Client
 {
-    /**
-     * @var ClientInterface
-     */
     private ClientInterface $client;
 
-    /**
-     * GuzzleAdapter constructor.
-     *
-     * @param ClientInterface $client
-     */
     public function __construct(ClientInterface $client)
     {
         $this->client = $client;
     }
 
-    /**
-     * @inheritdoc
-     */
     public function get(Request $request): Response
     {
         return $this->request('GET', $request);
     }
 
-    /**
-     * @inheritdoc
-     */
     public function post(Request $request): Response
     {
         return $this->request('POST', $request);
     }
 
-    /**
-     * @inheritdoc
-     */
     public function delete(Request $request): Response
     {
         return $this->request('DELETE', $request);
     }
 
     /**
-     * Perform the request via guzzle.
-     *
-     * @param string $method
-     * @param Request $request
-     *
-     * @return Response
      * @throws NchanException
      */
     private function request(string $method, Request $request): Response
