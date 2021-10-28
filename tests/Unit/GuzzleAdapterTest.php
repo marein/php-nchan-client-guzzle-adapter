@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\NchanGuzzle\Tests\Unit;
 
+use Exception;
 use GuzzleHttp\Exception\BadResponseException;
 use Marein\Nchan\Exception\NchanException;
 use Marein\NchanGuzzle\GuzzleAdapter;
@@ -68,7 +70,7 @@ final class GuzzleAdapterTest extends TestCase
         $this->expectException(NchanException::class);
 
         $guzzleAdapter = new GuzzleAdapter(
-            $this->testDoubleFactory->createThrowingGuzzleClient(new \Exception())
+            $this->testDoubleFactory->createThrowingGuzzleClient(new Exception())
         );
 
         $guzzleAdapter->get($this->testDoubleFactory->createNchanRequest());
@@ -118,7 +120,7 @@ final class GuzzleAdapterTest extends TestCase
         $this->expectException(NchanException::class);
 
         $guzzleAdapter = new GuzzleAdapter(
-            $this->testDoubleFactory->createThrowingGuzzleClient(new \Exception())
+            $this->testDoubleFactory->createThrowingGuzzleClient(new Exception())
         );
 
         $guzzleAdapter->post($this->testDoubleFactory->createNchanRequest());
@@ -168,7 +170,7 @@ final class GuzzleAdapterTest extends TestCase
         $this->expectException(NchanException::class);
 
         $guzzleAdapter = new GuzzleAdapter(
-            $this->testDoubleFactory->createThrowingGuzzleClient(new \Exception())
+            $this->testDoubleFactory->createThrowingGuzzleClient(new Exception())
         );
 
         $guzzleAdapter->delete($this->testDoubleFactory->createNchanRequest());

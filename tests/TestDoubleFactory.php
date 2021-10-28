@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\NchanGuzzle\Tests;
@@ -11,6 +12,7 @@ use Marein\NchanGuzzle\GuzzleResponseAdapter;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
 /**
  * This class reduces duplication to create test doubles,
@@ -57,11 +59,11 @@ final class TestDoubleFactory
     /**
      * Factory for throwing guzzle client.
      *
-     * @param \Throwable $throwable
+     * @param Throwable $throwable
      *
      * @return ClientInterface
      */
-    public function createThrowingGuzzleClient(\Throwable $throwable): ClientInterface
+    public function createThrowingGuzzleClient(Throwable $throwable): ClientInterface
     {
         $client = $this->testCase->getMockBuilder(ClientInterface::class)->getMock();
 

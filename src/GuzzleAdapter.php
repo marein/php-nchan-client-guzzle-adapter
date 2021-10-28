@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\NchanGuzzle;
 
+use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
 use Marein\Nchan\Exception\NchanException;
@@ -54,7 +56,7 @@ final class GuzzleAdapter implements Client
     /**
      * Perform the request via guzzle.
      *
-     * @param string  $method
+     * @param string $method
      * @param Request $request
      *
      * @return Response
@@ -77,7 +79,7 @@ final class GuzzleAdapter implements Client
             return new GuzzleResponseAdapter(
                 $exception->getResponse()
             );
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw new NchanException(
                 $exception->getMessage(),
                 $exception->getCode(),
