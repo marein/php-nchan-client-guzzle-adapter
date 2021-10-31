@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Marein\NchanGuzzle\Tests\Integration;
 
+use Exception;
 use GuzzleHttp\ClientInterface;
 use Marein\Nchan\Exception\NchanException;
 use Marein\Nchan\Nchan;
@@ -22,7 +24,7 @@ final class GuzzleAdapterTest extends TestCase
         $client
             ->expects($this->once())
             ->method('send')
-            ->willThrowException(new \Exception());
+            ->willThrowException(new Exception());
 
         $nchan = new Nchan(
             'http://127.0.0.1/',
