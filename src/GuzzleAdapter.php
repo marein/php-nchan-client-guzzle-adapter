@@ -59,7 +59,7 @@ final class GuzzleAdapter implements Client
         } catch (Exception $exception) {
             throw new NchanException(
                 $exception->getMessage(),
-                (int)$exception->getCode(),
+                $exception->getCode(),
                 $exception
             );
         }
