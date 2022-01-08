@@ -21,7 +21,9 @@
   "require": {
     "php": "^7.4 || ^8.0",
     "marein/php-nchan-client": "^2.0 || ^3.0",
-    "guzzlehttp/guzzle": "^7.0"
+    "guzzlehttp/guzzle": "^7.0",
+    "psr/http-message": "^1.0",
+    "guzzlehttp/psr7": "^1.6 || ^2.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6",
