@@ -12,11 +12,16 @@ jobs:
         operating-system: [ubuntu-latest]
         php-version: ['7.4', '8.0']
         nchan-client-version: ['^2.0', '^3.0']
+        guzzle-version: ['^7.0']
+        guzzle-psr7-version: ['^1.6', '^2.0']
         exclude:
-          - operating-system: ubuntu-latest
-            php-version: '8.0'
+          - php-version: '8.0'
             nchan-client-version: '^2.0'
-    name: ${{ matrix.php-version }} with nchan-client ${{ matrix.nchan-client-version }}
+    name: >-
+      ${{ matrix.php-version }}
+      with nchan-client ${{ matrix.nchan-client-version }}
+      and guzzle ${{ matrix.guzzle-version }}
+      and guzzle-psr7 ${{ matrix.guzzle-psr7-version }}
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
@@ -31,7 +36,10 @@ jobs:
         run: |
           composer install
           composer require \
-            marein/php-nchan-client:${{ matrix.nchan-client-version }}
+            marein/php-nchan-client:${{ matrix.nchan-client-version }} \
+            guzzlehttp/guzzle:${{ matrix.guzzle-version }} \
+            guzzlehttp/psr7:${{ matrix.guzzle-psr7-version }} \
+            --update-with-all-dependencies
 
       - name: Testsuite
         run: |
