@@ -41,7 +41,8 @@ jobs:
             marein/php-nchan-client:${{ matrix.nchan-client-version }} \
             guzzlehttp/guzzle:${{ matrix.guzzle-version }} \
             guzzlehttp/psr7:${{ matrix.guzzle-psr7-version }} \
-            --update-with-all-dependencies
+            --update-with-dependencies \
+            --no-interaction
 
       - name: Testsuite
         run: |
