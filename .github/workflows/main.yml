@@ -10,12 +10,14 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-version: ['7.4', '8.0']
+        php-version: ['7.4', '8.0', '8.1']
         nchan-client-version: ['^2.0', '^3.0']
         guzzle-version: ['^7.0']
         guzzle-psr7-version: ['^1.6', '^2.0']
         exclude:
           - php-version: '8.0'
+            nchan-client-version: '^2.0'
+          - php-version: '8.1'
             nchan-client-version: '^2.0'
     name: >-
       ${{ matrix.php-version }}
