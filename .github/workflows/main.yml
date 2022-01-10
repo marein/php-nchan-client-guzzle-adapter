@@ -20,10 +20,10 @@ jobs:
           - php-version: '8.1'
             nchan-client-version: '^2.0'
     name: >-
-      ${{ matrix.php-version }}
-      with nchan-client ${{ matrix.nchan-client-version }}
-      and guzzle ${{ matrix.guzzle-version }}
-      and guzzle-psr7 ${{ matrix.guzzle-psr7-version }}
+      ${{ matrix.php-version }} with
+      nchan-client ${{ matrix.nchan-client-version }},
+      guzzle ${{ matrix.guzzle-version }},
+      guzzle-psr7 ${{ matrix.guzzle-psr7-version }}
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Checkout
